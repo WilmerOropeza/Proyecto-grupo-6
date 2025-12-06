@@ -9,4 +9,9 @@ char hora_entrada[100][9];//[9]:Tamaño de la hora
 
 int_contador_registro = 0; 
 
- 
+void limpiador_buffer(){
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {
+    }
+
+}

@@ -67,3 +67,41 @@ printf("%-10s | %s\n", "PLACA", "HORA DE ENTRADA");
         printf("%-10s | %s\n", placas[i], hora_entrada[i]);
     }
 }
+
+int main(){
+    int opcion;
+
+do {
+    printf("\n==================================\n");
+    printf("SISTEMA DE REGISTRO DE VEHÍCULOS\n");
+    printf("==================================\n");
+    printf("1. Registrar Entrada de Vehiculo\n");
+    printf("2. Mostrar Todos los Registros\n");
+    printf("3. Salir\n");
+    printf("Selecione una opcion: ");
+
+    if (scanf("%d", &opcion) != 1) {
+            opcion = 0; 
+        }
+        
+        limpiar_buffer(); 
+
+        // Estructura switch (similar a if-else anidado)
+        switch (opcion) {
+            case 1:
+                registrar_entrada();
+                break;
+            case 2:
+                mostrar_registros();
+                break;
+            case 3: 
+                printf("\nSaliendo del sistema.");
+                break; 
+            default:
+                printf("\nOpción no válida. Intente de nuevo.\n");
+        }
+
+    }while (opcion !=3);
+    
+    return 0;
+}

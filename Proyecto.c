@@ -7,11 +7,47 @@
 char placas[100][10];
 char hora_entrada[100][9];//[9]:Tamaño de la hora 
 
-int_contador_registro = 0; 
+int contador_registro = 0; 
 
 void limpiador_buffer(){
     int c;
     while ((c = getchar()) != '\n' && c != EOF) {
     }
 
+}
+
+void registrar_entrada() { 
+    if (contador_registro >= 100){
+        printf("Error: El registro de vehiulo esta lleno.\n");
+        return;
+    
+}
+printf("\n--- Registro de entrada ---\n");
+
+printf ("Ingrese la placa del vehiculo (max. 9 caracteres): ");
+if (scanf("%9s", placas[contador_registro]) != 1) {
+    limpiador_buffer();
+    printf("Error al leer la placa.\n");
+    return;
+
+}
+
+time_t tiempo_actual;
+struct tm *info_tiempo;
+
+tiempo_actual = time(NULL);
+info_tiempo = localtime(&tiempo_actual);
+
+strftime(hora_entrada[contador_registro], 
+    9, 
+    "%H:%M:%S", 
+    info_tiempo);
+
+printf("Vehículo con placa **%s** registrado a la hora: **%s**\n", 
+        placas[contador_registro], 
+        hora_entrada[contador_registro]);
+
+contador_registro++;
+    
+    limpiar_buffer();
 }

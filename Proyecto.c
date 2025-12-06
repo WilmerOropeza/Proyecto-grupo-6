@@ -18,7 +18,7 @@ void limpiador_buffer(){
 
 void registrar_entrada() { 
     if (contador_registro >= 100){
-        printf("Error: El registro de vehiulo esta lleno.\n");
+        printf("Error: El registro de vehiculo esta lleno.\n");
         return;
     
 }
@@ -43,19 +43,19 @@ strftime(hora_entrada[contador_registro],
     "%H:%M:%S", 
     info_tiempo);
 
-printf("Vehículo con placa **%s** registrado a la hora: **%s**\n", 
+printf("Vehiculo con placa **%s** registrado a la hora: **%s**\n", 
         placas[contador_registro], 
         hora_entrada[contador_registro]);
 
 contador_registro++;
     
-    limpiar_buffer();
+    limpiador_buffer();
 }
 
 void mostrar_registro(){
-    printf("\n--- Vehículos Registrados (%d) ---\n", contador_registro);
+    printf("\n--- Vehiculos Registrados (%d) ---\n", contador_registro);
     if (contador_registro == 0) {
-        printf("No hay vehículos registrados.\n");
+        printf("No hay vehiculos registrados.\n");
         return;
 }
 
@@ -73,7 +73,7 @@ int main(){
 
 do {
     printf("\n==================================\n");
-    printf("SISTEMA DE REGISTRO DE VEHÍCULOS\n");
+    printf("SISTEMA DE REGISTRO DE VEHICULOS\n");
     printf("==================================\n");
     printf("1. Registrar Entrada de Vehiculo\n");
     printf("2. Mostrar Todos los Registros\n");
@@ -84,7 +84,7 @@ do {
             opcion = 0; 
         }
         
-        limpiar_buffer(); 
+        limpiador_buffer(); 
 
         // Estructura switch (similar a if-else anidado)
         switch (opcion) {
@@ -92,13 +92,13 @@ do {
                 registrar_entrada();
                 break;
             case 2:
-                mostrar_registros();
+                mostrar_registro();
                 break;
             case 3: 
                 printf("\nSaliendo del sistema.");
                 break; 
             default:
-                printf("\nOpción no válida. Intente de nuevo.\n");
+                printf("\nOpcion no valida. Intente de nuevo.\n");
         }
 
     }while (opcion !=3);

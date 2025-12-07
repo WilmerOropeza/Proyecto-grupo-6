@@ -68,3 +68,40 @@ void mostrar_registros() {
     }
 }
 
+int main(){
+    int opcion;
+
+do {
+    printf("\n==================================\n");
+    printf("SISTEMA DE REGISTRO DE VEHICULOS\n");
+    printf("==================================\n");
+    printf("1. Registrar Entrada de Vehiculo\n");
+    printf("2. Mostrar Todos los Registros\n");
+    printf("3. Salir\n");
+    printf("Selecione una opcion: ");
+
+    if (scanf("%d", &opcion) != 1) {
+            opcion = 0; 
+        }
+        
+        limpiador_buffer(); 
+
+        // Estructura switch 
+        switch (opcion) {
+            case 1:
+                registrar_entrada();
+                break;
+            case 2:
+                mostrar_registro();
+                break;
+            case 3: 
+                printf("\nSaliendo del sistema.");
+                break; 
+            default:
+                printf("\nOpcion no valida. Intente de nuevo.\n");
+        }
+
+    }while (opcion !=3);
+    
+return 0;
+}

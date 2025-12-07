@@ -52,5 +52,19 @@ contador_registro++;
     limpiador_buffer();
 }
 
+void mostrar_registros() {
+    printf("\n--- Vehículos Registrados (%d) ---\n", contador_registro);
+    if (contador_registro == 0) {
+        printf("No hay vehículos registrados.\n");
+        return;
+    }
 
+    printf("%-10s | %s\n", "PLACA", "HORA DE ENTRADA");
+    printf("-----------|----------------\n");
+
+    // Recorrido con ciclo 'for'
+    for (int i = 0; i < contador_registro; i++) {
+        printf("%-10s | %s\n", placas[i], hora_entrada[i]);
+    }
+}
 
